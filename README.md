@@ -1,64 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## About Project
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+MamiKos is a web app where users can search kost that have been added by the owner. Also, users can ask about room availability using the credit system.
 
-## About Laravel
+create API to:
+- Register as owner / regular user / premium user
+- Allow owner to add, update, and delete kost
+- Allow owner to see his kost list
+- Allow user to search kost that have been added by owner
+- Allow user to see kost detail
+- Allow user to ask about room availability
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requirements
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Regular user will be given 20 credit, premium user will be given 40 credit after register. Owner will have no credit.
+- Owner can add more than 1 kost
+- Search kost by several criteria: name, location, price
+- Search kost sorted by: price
+- Ask about room availability will reduce user credit by 5 point
+- Owner API & ask room availability API need to have authentication
+- Implement scheduled command to recharge user credit on every start of the month
+- Bonus point if you can create Owner dashboard that use your API
+## Task
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Create this project using Laravel PHP Framework
+- Consider this as production-ready project, implement industry standard (security, design pattern, code style, unittest, organized commit, etc)
+- Create step by step guide of how to install and use your project in normal environment
+- Create this project on public code repository & share the link to us
 
-## Learning Laravel
+## Setup Project On Your Local Machine
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Prerequisites
+1. Web Server (apache / nginx, etc)
+2. PHP => 8.0
+3. Composer
+4. MySQL
+5. Git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Setup Guide
+1. Make sure you install all the Prerequisite
 
-## Laravel Sponsors
+2. Clone the project from github to your directory
+    https://github.com/huda23aduh/mamikos-app.git
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. Install the dependencies using this command
+    composer install
 
-### Premium Partners
+4. Copy the env.example file and rename the new one with .env. Update if needed
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+5. Setup the database by create new database on you local machine, and run these commands
+    php artisan migrate
 
-## Contributing
+6. Run the project using this command
+    php artisan serve
+    
+    and the project will be running on http://localhost:8000. Note : (you can adjust / modif port number).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. If there's a problem with Personal Access Client, run
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    php artisan passport:install

@@ -136,7 +136,7 @@ class UserController extends Controller
             [
                 "code" => $this->successStatCode,
                 "status" => true,
-                "message" => trans('messages-success.api-api-logout-success'),
+                "message" => trans('messages-success.api-logout-success'),
                 "data" => [],
             ],
             $this->successStatCode
